@@ -1,0 +1,12 @@
+Project datasets' web addresses: 
+
+1. https://www.kaggle.com/datasets/suyashlakhani/apple-stock-prices-20152020
+2. https://www.kaggle.com/datasets/surajjoshi26/google-stock-price2004-2023/
+
+Why I chose these datasets:
+
+These datasets contain information about Google and Apple's opening, closing, highest, and lowest daily stock prices over several years. I chose these datasets because they include data for the years 2015-2020.
+
+I have the flexibility to compare how Apple and Google's stock values changed over the same day, week, year, or five-year period. I am still determining the period I will highlight in my plots. 
+
+In addition, I will compare Apple and Google's stock prices against each other to investigate which company performs better on the stock market.
