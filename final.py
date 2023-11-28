@@ -1,6 +1,3 @@
-# final-project-stocks
-ISTA 131 Fall 2023 Magrisso Final Project
-
 """""
 Name: Grace Magrisso
 Assignment: Final Project
@@ -24,15 +21,14 @@ from datetime import date, datetime
 import csv
 import pandas as pd
 from datetime import datetime, timedelta
-from textblob import TextBlob as tb
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import pytz as py
 
 def filter_google():
     """
-    Purpose:
-    Return
+    Purpose: This function cleans the csv file "google_stock_price.csv" that contains stock data of Google's financial history.
+    Return: a pandas Dataframe that has dates as indices and columns that contain opening $, closing $, and daily % change of opening and closing stock prices
     """
     # load in csv file with Google stock data
     file = pd.read_csv("google_stock_price.csv")
@@ -74,9 +70,9 @@ def filter_google():
 def google_scatter_plot(df):
     """
     # Assisted by Rich Thompson
-    Purpose:
-    Variable:
-    Return:
+    Purpose: This function defines a scatter plot of Google's opening by closing stock prices during the month of January in 2020. Displays a linear regression line.
+    Variable: df, a pandas Dataframe
+    Returns: None
     """
     # define series with x and y values as opening and closing prices:
     f1 = plt.figure(1, figsize= (14,8))
@@ -105,9 +101,9 @@ def google_scatter_plot(df):
 
     # plot and add design features:
     plt.plot(x, y, linewidth = 3, color = "orangered")
-    plt.title("Google's Daily Opening and Closing Stock Prices during January of 2020", fontsize = "medium", fontweight = "bold", color = "navy")
-    plt.xlabel("Opening share prices in USD", fontweight = "bold", color = "navy")
-    plt.ylabel("Closing share prices in USD", fontweight = "bold", color = "navy")
+    plt.title("Google's Daily Opening and Closing Stock Prices during January of 2020", fontsize = "medium", fontweight = "bold", color = "navy", size = 20)
+    plt.xlabel("Opening share prices in USD", fontweight = "bold", color = "navy", size = 15)
+    plt.ylabel("Closing share prices in USD", fontweight = "bold", color = "navy", size = 15)
     plt.grid(color = "slategrey")
     plt.gcf().set_facecolor("azure")
     plt.xticks(my_xticks, rotation = 45)
@@ -115,8 +111,8 @@ def google_scatter_plot(df):
 
 def filter_apple():
     """
-    Purpose:
-    Return:
+    Purpose: This function cleans the csv file "AAPL.csv" that contains stock data of Apple's financial history.
+    Return: a pandas Dataframe that has dates as indices and columns that contain opening $, closing $, and daily % change of opening and closing stock prices
     """
     # load in csv file with Apple stock data
     file = pd.read_csv("AAPL.csv", parse_dates=["date"])
@@ -163,9 +159,9 @@ def filter_apple():
 
 def apple_scatter_plot(df):
     """
-    Purpose:
-    Variable:
-    Return:
+    Purpose: This function defines a scatter plot of Apple's opening by closing stock prices during the month of January in 2020. Displays a linear regression line.
+    Variable: df, a pandas Dataframe
+    Returns: None
     """
     f2 = plt.figure(2, figsize= (14,8))
     x = df.Open.values
@@ -190,19 +186,20 @@ def apple_scatter_plot(df):
 
     # plot and add design features:
     plt.plot(x, y, linewidth = 3, color = "orangered")
-    plt.title("Apple's Daily Opening and Closing Stock Prices during January of 2020", fontsize = "medium", fontweight = "bold", color = "navy")
-    plt.xlabel("Opening share prices in USD", fontweight = "bold", color = "navy")
-    plt.ylabel("Closing share prices in USD", fontweight = "bold", color = "navy")
+    plt.title("Apple's Daily Opening and Closing Stock Prices during January of 2020", fontsize = "medium", fontweight = "bold", color = "navy", size = 20)
+    plt.xlabel("Opening share prices in USD", fontweight = "bold", color = "navy", size = 15)
+    plt.ylabel("Closing share prices in USD", fontweight = "bold", color = "navy", size = 15)
     plt.grid()
     plt.gcf().set_facecolor("azure")
     plt.xticks(my_xticks, rotation = 45)
     plt.yticks(my_yticks)
-
+    
 def open_close_change(dfa, dfg):
     """
-    Purpose:
-    Variables:
-    Return:
+    Purpose: This function defines a bar plot that displays the % change in Apple and Google's daily stock prices 1/2020
+    Variables: dfa, a pandas Dataframe that contains data of Apple's stocks opening and closing prices and daily % change.
+    dfg, a pandas Dataframe that contains data of Google's stocks opening and closing prices and daily % change.
+    Returns: None
     """
     # convert indices in datetime64 to strings
     si = dfg.index.values
@@ -232,12 +229,12 @@ def open_close_change(dfa, dfg):
     # create plot
     df_plot.plot(kind = "bar", figsize = (14,8), color = ["navy","orangered"])
     plt.xticks(rotation = 45)
-    plt.title("Apple and Google's Daily Stock $ Change", fontweight = "bold", color = "navy")
+    plt.title("Apple and Google's Daily Stock $ Change", fontweight = "bold", color = "navy", size = 20)
     # no vertical grid lines
     plt.grid(axis= "y", color = "slategrey")
     plt.gcf().set_facecolor("azure")
-    plt.xlabel("Date (2020)", fontweight = "bold", color = "navy")
-    plt.ylabel("Daily % change of opening and closing stock prices", fontweight = "bold", color = "navy")
+    plt.xlabel("Date (2020)", fontweight = "bold", color = "navy", size = 13)
+    plt.ylabel("Daily % change of opening and closing stock prices", fontweight = "bold", color = "navy", size = 13)
     # add more ticks of y axis
     my_yticks = [-3.75, -3.5, -3.25, -3, -2.75, -2.5, -2.25, -2, -1.75, -1.5, -1.25, -1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5]
     plt.yticks(my_yticks)
@@ -262,7 +259,7 @@ def main():
     open_close_change(g_df, a_df)
 
     print()
-    print("Google's January 2020 Stock Prices)")
+    print("Google's January 2020 Stock Prices")
     print(g_df)
     print()
     print("Apple's January 2020 Stock Prices")
